@@ -1,0 +1,27 @@
+﻿@model IEnumerable<Ado.netDapperOrmProje.Models.KategoriModel>
+
+<p>
+    @Html.ActionLink("Yeni Kategori Ekle", "KtegoriEkle")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.KategoriAd)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.KategoriAd)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "KtegoriEkle", new {  id=item.KategoriId }) |
+            @*@Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |*@
+            @Html.ActionLink("Delete", "KDelete", new { id=item.KategoriId })
+        </td>
+    </tr>
+}
+
+</table>
